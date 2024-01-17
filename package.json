@@ -2,6 +2,10 @@
   "name": "chat",
   "version": "0.1.0",
   "private": true,
+  "repository": "git@github.com:bsturdivan/chat.git",
+  "author": "Brian Sturdivan <bsturdivan@gmail.com>",
+  "description": "A sample chat web app for sleeper.app",
+  "license": "None",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
