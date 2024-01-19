@@ -1,0 +1,40 @@
+@font-face {
+  font-family: 'gt-super';
+  src: url('./GT-Super-Display-Light.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'gt-super';
+  src: url('./GT-Super-Display-Medium.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'gt-america';
+  src: url('./GT-America-Standard-Light.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'gt-america';
+  src: url('./GT-America-Standard-Medium.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'gt-flexa';
+  src: url('./GT-Flexa-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'gt-flexa';
+  src: url('./GT-Flexa-Bold-Italic.woff2') format('woff2');
+  font-weight: bold;
+  font-style: italic;
+}

@@ -1,0 +1,94 @@
+:root {
+  --darken-ratio: 1; /* 5 */
+  --midtone-darken-ratio: 1; /* 2 */
+  --opacity: 1;
+  --saturation: 1; /* 0 */
+
+  --white-h: 195;
+  --white-s: 80%;
+  --white-l: 96%;
+  --contrast-l: 21%;
+
+  --pink-h: 355;
+  --pink-s: 47%;
+  --pink-l: 62%;
+
+  --mauve-h: 354;
+  --mauve-s: 59%;
+  --mauve-l: 96%;
+
+  --yellow-h: 37;
+  --yellow-s: 81%;
+  --yellow-l: 64%;
+
+  --blue-h: 202;
+  --blue-s: 26%;
+  --blue-l: 60%;
+
+  --green-h: 103;
+  --green-s: 33%;
+  --green-l: 55%;
+
+  --base: hsla(
+    var(--white-h),
+    calc(var(--white-s) * var(--saturation)),
+    calc(var(--white-l) / var(--darken-ratio)),
+    var(--opacity)
+  );
+  --contrast: hsla(
+    var(--white-h),
+    calc(var(--white-s) * var(--saturation)),
+    calc(var(--contrast-l) * var(--darken-ratio)),
+    var(--opacity)
+  );
+  --contrast-transparent: hsla(
+    var(--white-h),
+    calc(var(--white-s) * var(--saturation)),
+    calc(var(--contrast-l) * var(--darken-ratio)),
+    0.4
+  );
+  --pink: hsla(
+    var(--pink-h),
+    calc(var(--pink-s) * var(--saturation)),
+    calc(var(--pink-l) * var(--midtone-darken-ratio)),
+    var(--opacity)
+  );
+  --yellow: hsla(
+    var(--yellow-h),
+    calc(var(--yellow-s) * var(--saturation)),
+    var(--yellow-l),
+    var(--opacity)
+  );
+   --blue: hsla(
+    var(--blue-h),
+    calc(var(--blue-s) * var(--saturation)),
+    var(--blue-l),
+    var(--opacity)
+  );
+   --green: hsla(
+    var(--green-h),
+    calc(var(--green-s) * var(--saturation)),
+    var(--green-l),
+    var(--opacity)
+  );
+  --mauve: hsla(
+    var(--mauve-h),
+    calc(var(--mauve-s) * var(--saturation)),
+    calc(var(--mauve-l) / var(--darken-ratio)),
+    var(--opacity)
+  );
+}
+
+button:hover,
+a:hover {
+  transition: opacity ease-out 300ms;
+  opacity: 0.7;
+}
+
+:export {
+  base: var(--base);
+  contrast: var(--contrast);
+  pink: var(--pink);
+  yellow: var(--yellow);
+  mauve: var(--mauve);
+}

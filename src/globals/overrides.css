@@ -1,0 +1,10 @@
+html {
+  background-color: var(--mauve);
+  font-size: 62.5%;
+}
+
+body {
+  background: linear-gradient(-45deg, var(--base) 50%, var(--mauve) 100%);
+  height: max-content;
+  letter-spacing: 0.04em;
+}
