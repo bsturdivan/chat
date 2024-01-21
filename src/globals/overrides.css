@@ -8,3 +8,10 @@ body {
   height: max-content;
   letter-spacing: 0.04em;
 }
+
+#chat {
+  width: 100vw;
+  min-height: 100vh;
+  padding: 3rem;
+  box-sizing: border-box;
+}

@@ -1,20 +1,18 @@
-import { useState } from 'react'
-// import { storage } from '../db/storage'
+import { useEffect } from 'react'
+import { useMessage } from '../hooks/useMessage'
 import { Message } from '../types'
 
 function Messages() {
-  const [newMessages, setNewMessages] = useState<Message[]>([])
+  const { aggregateData } = useMessage()
 
-  window.addEventListener('storage', event => {
-    if (event.newValue) {
-      setNewMessages([...newMessages, JSON.parse(event.newValue)])
-    }
-  })
+  useEffect(() => {
+    console.log(aggregateData)
+  }, [aggregateData])
 
   return (
     <section>
-      {newMessages.map(message => (
-        <div>{message.message}</div>
+      {aggregateData.map((item: Message) => (
+        <p>{item.message}</p>
       ))}
     </section>
   )

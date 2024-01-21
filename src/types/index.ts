@@ -1,9 +1,12 @@
-import { createContext } from 'react'
-
 export interface User {
   id: number
   username: string
   createdAt: number
+}
+
+export interface AuthStore {
+  auth: { id: string; timestamp: number } | any
+  setAuth: (id: number) => void
 }
 
 export interface Message {
@@ -13,16 +16,21 @@ export interface Message {
   message: string
 }
 
+export interface MessageStore {
+  message: StorageObject | null
+  setMessage: (message: Message | null) => void
+}
+
+export type ValueStore = (Message | User) | (Message | User)[] | any
+
 export interface StorageObject {
   key: string
-  value: object
+  value: ValueStore
 }
 
 export interface StorageDb {
-  set: (key: string, value: object) => StorageObject
-  get: (key: string) => StorageObject
-  getAll: (keyPrefix: string) => (Message | User)[]
-  change: (value: Message | User) => StorageEvent
+  set: (key: string, value: object) => void
+  get: (key: string) => void
+  findByIndex: (index: number) => void
+  data: { key: string; value: ValueStore } | any
 }
-
-export const UserContext = createContext<Partial<User>>({})

@@ -1,26 +1,24 @@
-import { useState } from 'react'
 import Input from './Input'
 import Login from './Login'
 import Messages from './Messages'
-import { UserContext } from './types'
+import { AuthContext } from './contexts/AuthContext'
+import { useAuth } from './hooks/useAuth'
 import './App.css'
 
 function App() {
-  const [user, setUser] = useState({})
+  const { data: auth, create: setAuth } = useAuth()
 
   return (
-    <UserContext.Provider value={user}>
-      <div className="chat">
-        {Object.values(user).length === 0 && <Login setUser={setUser} />}
+    <AuthContext.Provider value={{ auth, setAuth }}>
+      {!auth.id && <Login />}
 
-        {Object.values(user).length > 0 && (
-          <div>
-            <Messages />
-            <Input />
-          </div>
-        )}
-      </div>
-    </UserContext.Provider>
+      {auth.id && (
+        <div>
+          <Input />
+          <Messages />
+        </div>
+      )}
+    </AuthContext.Provider>
   )
 }
 
