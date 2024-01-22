@@ -13,14 +13,16 @@ function App() {
 
   return (
     <AuthContext.Provider value={{ auth, setAuth }}>
-      {!auth.id && <Login />}
+      <div className="container">
+        {!auth.id && <Login />}
 
-      {auth.id && (
-        <MessageContext.Provider value={{ messages: messageData, setMessage }}>
-          <Messages />
-          <Input />
-        </MessageContext.Provider>
-      )}
+        {auth.id && (
+          <MessageContext.Provider value={{ messages: messageData, setMessage }}>
+            <Messages />
+            <Input />
+          </MessageContext.Provider>
+        )}
+      </div>
     </AuthContext.Provider>
   )
 }

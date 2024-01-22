@@ -4,6 +4,11 @@
   --font-size-200: 2.4rem;
   --font-size-300: 3rem;
   --font-size-400: 3.6rem;
+  --padding-50: 0.4rem;
+  --padding-100: 0.8rem;
+  --padding-200: 1.6rem;
+  --padding-300: 2rem;
+  --padding-400: 2.4rem;
 }
 
 @media (max-width: 600px) {

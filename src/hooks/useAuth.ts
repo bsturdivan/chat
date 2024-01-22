@@ -20,7 +20,7 @@ export const useAuth = (): {
         setData(value)
       }
     } else {
-      findByIndex(0)
+      findByIndex(1)
     }
   }, [authedUser, data, findByIndex])
 

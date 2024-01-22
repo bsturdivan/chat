@@ -1,0 +1,57 @@
+.messages {
+  /* height: calc(100vh - 100px); */
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: var(--padding-50);
+  padding: var(--padding-300) 0;
+  scroll-padding-bottom: var(--padding-400);
+}
+
+.message {
+  display: flex;
+  justify-content: flex-start;
+  gap: var(--padding-100)
+}
+
+.message--user-block {
+  padding-top: var(--padding-100);
+}
+
+.avatar-container {
+  min-width: 36px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--green);
+}
+
+.username {
+  font-family: gt-flexa;
+  font-size: var(--font-size-50);
+  padding-bottom: var(--padding-50);
+}
+
+.message-body {
+  font-family: gt-america;
+  font-size: var(--font-size-50);
+  line-height: 1.2em;
+}
+
+.typing-container {
+  min-height: var(--font-size-100);
+  position: absolute;
+  bottom: calc(var(--font-size-300) * -1);
+  left: 0;
+  width: 100%;
+}
+
+.typing {
+  font-family: gt-america;
+  font-size: var(--font-size-50);
+  font-style: italic;
+  line-height: 1.2em;
+}

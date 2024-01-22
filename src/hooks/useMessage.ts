@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useUuid } from './useUuid'
-import { useStorage, StorageChangeEvent } from './useStorage'
-import { Message, StorageObject, ValueStore } from '../types'
-import groupBy from 'lodash.groupby'
+import { useStorage } from './useStorage'
+import { Message, ValueStore } from '../types'
 
 export const useMessage = (): {
   data: Message[]
@@ -17,6 +16,10 @@ export const useMessage = (): {
     items.sort((first, next) => first.timestamp - next.timestamp)
 
   useEffect(() => {
+    return () => {}
+  })
+
+  useEffect(() => {
     getAll('message')
 
     window.addEventListener('storage', event => {
@@ -24,6 +27,10 @@ export const useMessage = (): {
         setAggregateData([...aggregateData, JSON.parse(event.newValue)])
       }
     })
+
+    return () => {
+      window.removeEventListener('storage', setAggregateData)
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -32,6 +39,7 @@ export const useMessage = (): {
       setAggregateData(sortedValues([...aggregateData, data.value]))
       // window.dispatchEvent(StorageChangeEvent(data.value))
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data])
 
   useEffect(() => {
