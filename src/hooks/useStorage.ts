@@ -3,6 +3,7 @@ import { Message, User, StorageObject, StorageDb } from '../types'
 
 export const useStorage = (session?: boolean): StorageDb => {
   const [data, setData] = useState<StorageObject | any>({})
+  const [dataAggregate, setDataAggregate] = useState<StorageObject[] | any>([])
   const storage = session ? window.sessionStorage : window.localStorage
 
   const getStoredValue = (key: string): Message | User | {} => {
@@ -29,10 +30,18 @@ export const useStorage = (session?: boolean): StorageDb => {
     if (key) get(key)
   }
 
-  return { data, set, get, findByIndex }
+  const getAll = (keyPrefix: string) => {
+    const value = Object.keys(window.localStorage)
+      .filter(keyMatch => keyMatch.startsWith(keyPrefix))
+      .map(key => getStoredValue(key))
+
+    setDataAggregate(value)
+  }
+
+  return { data, dataAggregate, set, get, findByIndex, getAll }
 }
 
-export const StorageChangeEvent = (value: Message | User): StorageEvent => {
+export const StorageChangeEvent = (value: (Message | User) | (Message | User)[]): StorageEvent => {
   return new StorageEvent('storage', {
     newValue: JSON.stringify(value),
   })

@@ -17,8 +17,8 @@ export interface Message {
 }
 
 export interface MessageStore {
-  message: StorageObject | null
-  setMessage: (message: Message | null) => void
+  messages: Message[] | null
+  setMessage: ({ userId, message }: { userId: number; message: string }) => void
 }
 
 export type ValueStore = (Message | User) | (Message | User)[] | any
@@ -31,6 +31,8 @@ export interface StorageObject {
 export interface StorageDb {
   set: (key: string, value: object) => void
   get: (key: string) => void
+  getAll: (keyPrefix: string) => void
   findByIndex: (index: number) => void
   data: { key: string; value: ValueStore } | any
+  dataAggregate: ValueStore[]
 }

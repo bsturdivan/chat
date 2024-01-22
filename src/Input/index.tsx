@@ -1,16 +1,16 @@
-import { KeyboardEvent, useContext, useEffect } from 'react'
-import { useMessage } from '../hooks/useMessage'
+import { KeyboardEvent, useContext } from 'react'
 import { AuthContext } from '../contexts/AuthContext'
+import { MessageContext } from '../contexts/MessageContext'
 
 function Input() {
   const { auth } = useContext(AuthContext)
-  const { create, data } = useMessage()
+  const { setMessage } = useContext(MessageContext)
 
   const handleEnterPress = (event: KeyboardEvent): void => {
     const target = event.target as HTMLFormElement
     if (event.key === 'Enter' && event.shiftKey === false && target.value) {
       event.preventDefault()
-      create({ message: target.value, userId: auth.id })
+      setMessage({ message: target.value, userId: auth.id })
       target.value = ''
     }
   }

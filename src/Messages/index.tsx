@@ -1,18 +1,20 @@
-import { useEffect } from 'react'
-import { useMessage } from '../hooks/useMessage'
+import { useContext, useRef } from 'react'
+import { MessageContext } from '../contexts/MessageContext'
 import { Message } from '../types'
+import MessageBody from './MessageBody'
 
 function Messages() {
-  const { aggregateData } = useMessage()
-
-  useEffect(() => {
-    console.log(aggregateData)
-  }, [aggregateData])
+  const { messages } = useContext(MessageContext)
 
   return (
     <section>
-      {aggregateData.map((item: Message) => (
-        <p>{item.message}</p>
+      {messages?.map((item: Message, index: number) => (
+        <MessageBody
+          key={item.timestamp}
+          data={item}
+          index={index}
+          previousUserId={messages[index - 1]?.userId}
+        />
       ))}
     </section>
   )
