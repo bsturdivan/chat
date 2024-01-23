@@ -7,6 +7,7 @@
   "description": "A sample chat web app for sleeper.app",
   "license": "None",
   "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@giphy/js-fetch-api": "^5.3.0",
     "@giphy/react-components": "^9.2.3",
     "@types/node": "^16.7.13",
@@ -18,7 +19,7 @@
     "lodash.orderby": "^4.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "reset-css": "^5.0.2",
     "styled-components": "^6.1.8",
     "typescript": "^4.4.2"
