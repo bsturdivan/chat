@@ -22,6 +22,8 @@ function Login() {
     if (Object.values(auth).length === 0 && !!user?.id) {
       setAuth(user.id)
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, auth])
 
   return (

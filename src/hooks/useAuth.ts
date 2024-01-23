@@ -17,11 +17,9 @@ export const useAuth = (): {
     const session = sessionKey ? JSON.parse(storage[sessionKey]) : null
 
     if (session?.id && Object.values(data).length === 0) setData(session)
-  }, [data])
 
-  // useEffect(() => {
-  //   console.log(data)
-  // }, [data])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data])
 
   const create = (id: number) => {
     const timestamp = Date.now()
