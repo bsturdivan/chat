@@ -21,7 +21,7 @@ jobs:
       - name: Deploy
         uses: reggionick/s3-deploy@v4
         with:
-          folder: dist
+          folder: public
           bucket: ${{ secrets.S3_BUCKET }}
           bucket-region: us-west-1
           dist-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
