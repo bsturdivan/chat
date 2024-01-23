@@ -2,6 +2,8 @@ export interface User {
   id: number
   username: string
   createdAt: number
+  avatar: string
+  color: string
 }
 
 export interface AuthStore {
@@ -33,6 +35,7 @@ export interface StorageDb {
   get: (key: string) => void
   getAll: (keyPrefix: string) => void
   findByIndex: (index: number) => void
+  storage: Storage
   data: { key: string; value: ValueStore } | any
   dataAggregate: ValueStore[]
 }

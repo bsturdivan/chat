@@ -1,0 +1,35 @@
+.login {
+  width: 80%;
+  height: 600px;
+  display: flex;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+.headline {
+  font-family: gt-flexa;
+  font-weight: bold;
+  font-size: var(--font-size-400);
+  color: var(--contrast);
+  margin-bottom: var(--padding-400);
+}
+
+.login-username {
+  font-family: gt-america;
+  font-weight: bold;
+  font-size: var(--font-size-400);
+  color: var(--pink);
+  background-color: transparent;
+  border: 0;
+  padding: var(--padding-200) var(--padding-200) 0;
+  outline: none;
+  border-bottom: 0.5rem solid var(--green);
+  line-height: 1em;
+  box-sizing: border-box;
+}
+
+@media (max-width: 500px) {
+  .login {
+    width: auto;
+  }
+}

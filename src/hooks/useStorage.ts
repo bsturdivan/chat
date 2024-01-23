@@ -38,7 +38,7 @@ export const useStorage = (session?: boolean): StorageDb => {
     setDataAggregate(value)
   }
 
-  return { data, dataAggregate, set, get, findByIndex, getAll }
+  return { data, dataAggregate, storage, set, get, findByIndex, getAll }
 }
 
 export const StorageChangeEvent = (value: (Message | User) | (Message | User)[]): StorageEvent => {

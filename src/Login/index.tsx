@@ -1,6 +1,7 @@
 import { SyntheticEvent, useContext, useEffect, useRef } from 'react'
 import { useUser } from '../hooks/useUser'
 import { AuthContext } from '../contexts/AuthContext'
+import './styles.css'
 
 function Login() {
   const inputRef = useRef<HTMLInputElement>(null)
@@ -18,15 +19,20 @@ function Login() {
   }, [])
 
   useEffect(() => {
-    if (Object.values(user).length > 0 && Object.values(auth).length === 0) {
+    if (Object.values(auth).length === 0 && !!user?.id) {
       setAuth(user.id)
     }
-  }, [user, auth, setAuth])
+  }, [user, auth])
 
   return (
     <div className="login">
       <form onSubmit={handleLogin}>
-        <input type="text" name="username" ref={inputRef} autoFocus />
+        <h2 className="headline">
+          Hi there!
+          <br />
+          What can we call you?
+        </h2>
+        <input type="text" name="username" className="login-username" ref={inputRef} autoFocus />
       </form>
     </div>
   )

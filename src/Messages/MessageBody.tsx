@@ -36,10 +36,16 @@ function MessageBody({ data, previousUserId }: { data: Message; previousUserId: 
 
   return (
     <figure className={containerClass}>
-      <div className="avatar-container">{showUsername && <div className="avatar" />}</div>
+      <div className="avatar-container">
+        {showUsername && <div className="avatar" style={{ background: user.avatar }} />}
+      </div>
 
       <figcaption className="body">
-        {showUsername && <h3 className="username">{user.username}</h3>}
+        {showUsername && (
+          <h3 className="username" style={{ color: user.color }}>
+            {user.username}
+          </h3>
+        )}
 
         <p className="message-body">
           {!gif && data.message}

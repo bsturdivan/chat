@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useStorage } from './useStorage'
 import { useUuid } from './useUuid'
 
@@ -8,27 +8,28 @@ export const useAuth = (): {
   setData: (user: any) => void
 } => {
   const [data, setData] = useState<any>({})
-  const { set, findByIndex, data: authedUser } = useStorage(true)
+  const { set, storage } = useStorage(true)
   const { data: id } = useUuid()
   const key = `auth:${id}`
 
   useEffect(() => {
-    const { value } = authedUser
+    const sessionKey = Object.keys(storage).find(item => item.startsWith('auth'))
+    const session = sessionKey ? JSON.parse(storage[sessionKey]) : null
 
-    if (value?.id) {
-      if (Object.values(data).length === 0) {
-        setData(value)
-      }
-    } else {
-      findByIndex(1)
-    }
-  }, [authedUser, data, findByIndex])
+    if (session?.id && Object.values(data).length === 0) setData(session)
+  }, [data])
+
+  // useEffect(() => {
+  //   console.log(data)
+  // }, [data])
 
   const create = (id: number) => {
     const timestamp = Date.now()
     const value = { id, timestamp }
+    storage.clear()
 
     set(key, value)
+    setData(value)
   }
 
   return { data, setData, create }

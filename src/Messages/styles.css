@@ -1,11 +1,11 @@
 .messages {
-  /* height: calc(100vh - 100px); */
   overflow: scroll;
   display: flex;
   flex-direction: column;
   gap: var(--padding-50);
-  padding: var(--padding-300) 0;
+  padding: var(--padding-300) var(--padding-200);
   scroll-padding-bottom: var(--padding-400);
+  min-height: calc(100vh - 178px);
 }
 
 .message {
