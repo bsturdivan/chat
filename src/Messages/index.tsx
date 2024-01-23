@@ -21,7 +21,6 @@ function Messages() {
   const randomTime = (): number => random(3000, 90000)
   const randomUser = (): User => aggregateUsers[random(0, aggregateUsers.length - 1)]
   const debouncedMessage = useDebounce(messages, 300)
-  const debouncedTyping = useDebounce(typing, 300)
 
   useEffect(() => {
     let time = 2000
